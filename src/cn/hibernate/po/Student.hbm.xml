@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-8-20 23:43:25 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="cn.hibernate.po.Student" table="STUDENT">
+        <id name="id" type="int">
+            <column name="ID" />
+            <!--  <generator class="assigned" />-->
+            <generator class="native" />
+        </id>
+        <property name="username" type="java.lang.String">
+            <column name="USERNAME" />
+        </property>
+        <property name="birthday" type="java.util.Date">
+            <column name="BIRTHDAY" />
+        </property>
+        <property name="address" type="java.lang.String">
+            <column name="ADDRESS" />
+        </property>
+        <property name="detail" type="java.lang.String">
+            <column name="DETAIL" />
+        </property>
+        <property name="score" type="float">
+            <column name="SCORE" />
+        </property>
+    </class>
+</hibernate-mapping>
