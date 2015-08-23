@@ -9,10 +9,9 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
+import cn.hibernate.po.Contact;
 import cn.hibernate.po.Student;
 
 public class HbTest {
@@ -33,7 +32,27 @@ public class HbTest {
 		s.setUsername("李四");
 		s.setBirthday(new Date());
 		s.setAddress("上海");
+		Contact contact=new Contact("215000","13888888888");
+		s.setContact(contact);
 		session.save(s);
+		
+		transcaction.commit();
+		session.close();
+		sessionFactory.close();
+	}
+	
+	@Test
+	public void getStudent(){
+		Configuration config = new Configuration().configure();
+		ServiceRegistry serviceRegistry=new ServiceRegistryBuilder().applySettings(config.getProperties()).buildServiceRegistry();
+		//创建会话工厂对象
+		sessionFactory=config.buildSessionFactory(serviceRegistry);
+		session=sessionFactory.openSession();
+		transcaction=session.beginTransaction();
+		
+		Student s=(Student) session.get(Student.class, 1);
+		System.out.println(s);
+
 		
 		transcaction.commit();
 		session.close();

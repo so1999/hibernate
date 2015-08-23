@@ -9,19 +9,32 @@ public class Student {
 	private String address;
 	private String detail;
 	private float score;
+	private Contact contact;
+
+	public Contact getContact() {
+		return contact;
+	}
+
+	public void setContact(Contact contact) {
+		this.contact = contact;
+	}
 
 	public Student() {
 
 	}
 
+	
+
 	public Student(int id, String username, Date birthday, String address,
-			String detail, float score) {
+			String detail, float score, Contact contact) {
+		super();
 		this.id = id;
 		this.username = username;
 		this.birthday = birthday;
 		this.address = address;
 		this.detail = detail;
 		this.score = score;
+		this.contact = contact;
 	}
 
 	public int getId() {
@@ -77,7 +90,7 @@ public class Student {
 		return "Student [id=" + id + ", username=" + username
 				+ ", birthday=" + birthday + ", address="
 				+ address + ", detail=" + detail + ", score="
-				+ score + "]";
+				+ score + ", contact=" + contact + "]";
 	}
-
+	
 }
