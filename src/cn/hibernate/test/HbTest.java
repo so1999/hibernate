@@ -67,5 +67,4 @@ public class HbTest {
 		session.close();
 		sessionFactory.close();
 	}
-
 }
