@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-8-26 19:59:53 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="cn.hibernate.po.Grade" table="GRADE">
+        <id name="gid" type="int">
+            <column name="GID" />
+            <generator class="native" />
+        </id>
+        <property name="gname" type="java.lang.String" length="20">
+            <column name="GNAME" />
+        </property>
+        <property name="gdesc" type="java.lang.String" length="20">
+            <column name="GDESC" />
+        </property>
+        <!-- 配置单向一对多关联关系 -->
+        <set name="student" table="student">
+            <!-- 指定关联的外键列 -->
+            <key column="gid"></key>
+            <one-to-many class="cn.hibernate.po.Student"/>
+        </set>
+    </class>
+</hibernate-mapping>
